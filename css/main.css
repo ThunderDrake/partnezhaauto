@@ -341,6 +341,7 @@ a {
 .button {
   position: relative;
   z-index: 1;
+  display: block;
   overflow: hidden;
   border-radius: 4px;
   padding-top: 0.7em;
@@ -1808,7 +1809,7 @@ input[type=radio]:checked + .social-button--wa .social-button__icon {
     width: 100%;
   }
 }
-.advantages__button button {
+.advantages__button .button {
   padding: 1em 2.3em 1.4em;
 }
 .advantages__button-wrapper {
@@ -2230,15 +2231,15 @@ input[type=radio]:checked + .social-button--wa .social-button__icon {
 .benefit__footer-checklist {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
-  grid-template-columns: repeat(2, 1fr);
+  -ms-grid-columns: none;
+  grid-template-columns: none;
   margin-bottom: 30px;
   row-gap: 20px;
 }
 .benefit__footer-checklist-item {
   position: relative;
   padding-left: 30px;
-  max-width: 340px;
+  font-size: 1.8rem;
 }
 .benefit__footer-checklist-item::before {
   content: "";
@@ -2299,7 +2300,7 @@ input[type=radio]:checked + .social-button--wa .social-button__icon {
   width: 100%;
   max-width: 380px;
 }
-.benefit__button button {
+.benefit__button .button {
   padding-top: 28px;
   padding-bottom: 38px;
   width: 100%;
@@ -2669,12 +2670,12 @@ input[type=radio]:checked + .social-button--wa .social-button__icon {
 .calculator__button::before {
   display: none;
 }
-.calculator__button button {
+.calculator__button .button {
   padding: 20px 40px 28px;
   font-size: 22px;
 }
 @media (max-width: 460px) {
-  .calculator__button button {
+  .calculator__button .button {
     padding: 20px 30px 28px;
     font-size: 20px;
   }
@@ -2945,12 +2946,12 @@ input[type=radio]:checked + .social-button--wa .social-button__icon {
   line-height: 108%;
   letter-spacing: 0.03em;
   -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#c4c4c4));
   background: -o-linear-gradient(top, #fff 0%, #c4c4c4 100%);
   background: linear-gradient(180deg, #fff 0%, #c4c4c4 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  text-fill-color: transparent;
 }
 @media (max-width: 460px) {
   .about__name {
@@ -3069,7 +3070,7 @@ input[type=radio]:checked + .social-button--wa .social-button__icon {
   -ms-flex-align: center;
   align-items: center;
   border-radius: 10px;
-  padding: 26px 38px 35px 17px;
+  padding: 26px 15px 35px 17px;
   max-width: 425px;
   -webkit-box-shadow: 0 25px 50px #000;
   box-shadow: 0 25px 50px #000;
@@ -3201,12 +3202,12 @@ input[type=radio]:checked + .social-button--wa .social-button__icon {
   letter-spacing: 0.03em;
   text-align: center;
   -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#c4c4c4));
   background: -o-linear-gradient(top, #fff 0%, #c4c4c4 100%);
   background: linear-gradient(180deg, #fff 0%, #c4c4c4 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  text-fill-color: transparent;
 }
 @media (max-width: 915px) {
   .about__card-text {
@@ -3227,12 +3228,12 @@ input[type=radio]:checked + .social-button--wa .social-button__icon {
   letter-spacing: 0.03em;
   text-align: center;
   -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
   background: -webkit-gradient(linear, left top, left bottom, from(#e11b3f), to(#6f1a1c));
   background: -o-linear-gradient(top, #e11b3f 0%, #6f1a1c 100%);
   background: linear-gradient(180deg, #e11b3f 0%, #6f1a1c 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  text-fill-color: transparent;
 }
 .about__card-number span {
   font-size: 0.8em;
@@ -3597,7 +3598,7 @@ input[type=radio]:checked + .social-button--wa .social-button__icon {
 .review__button::before {
   display: none;
 }
-.review__button button {
+.review__button .button {
   padding-top: 20px;
   padding-bottom: 28px;
   width: 100%;
@@ -3962,6 +3963,7 @@ input[type=radio]:checked + .social-button--wa .social-button__icon {
 .possibilities__cards {
   display: -ms-grid;
   display: grid;
+  grid-auto-rows: 223px;
   -ms-grid-columns: (1fr)[2];
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 58px;
@@ -4046,7 +4048,7 @@ input[type=radio]:checked + .social-button--wa .social-button__icon {
 .possibilities__button::before {
   display: none;
 }
-.possibilities__button button {
+.possibilities__button .button {
   padding-right: 60px;
   padding-left: 60px;
 }

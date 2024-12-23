@@ -273,19 +273,19 @@ var _document, _document2, _document3, _document4, _document5, _document6;
 
 
 
-var formCallback = (_document = document) === null || _document === void 0 ? void 0 : _document.querySelector('.callback__form');
-var formPresentation = (_document2 = document) === null || _document2 === void 0 ? void 0 : _document2.querySelector('#modal-presentation');
-var formBusiness = (_document3 = document) === null || _document3 === void 0 ? void 0 : _document3.querySelector('#modal-business');
-var formConsulting = (_document4 = document) === null || _document4 === void 0 ? void 0 : _document4.querySelector('#modal-consulting');
-var formCity = (_document5 = document) === null || _document5 === void 0 ? void 0 : _document5.querySelector('#modal-city');
-var formDocs = (_document6 = document) === null || _document6 === void 0 ? void 0 : _document6.querySelector('#modal-docs');
+var formCallback = (_document = document) === null || _document === void 0 ? void 0 : _document.querySelector(".callback__form");
+var formPresentation = (_document2 = document) === null || _document2 === void 0 ? void 0 : _document2.querySelector("#modal-presentation");
+var formBusiness = (_document3 = document) === null || _document3 === void 0 ? void 0 : _document3.querySelector("#modal-business");
+var formConsulting = (_document4 = document) === null || _document4 === void 0 ? void 0 : _document4.querySelector("#modal-consulting");
+var formCity = (_document5 = document) === null || _document5 === void 0 ? void 0 : _document5.querySelector("#modal-city");
+var formDocs = (_document6 = document) === null || _document6 === void 0 ? void 0 : _document6.querySelector("#modal-docs");
 var callbackTelSelector = formCallback === null || formCallback === void 0 ? void 0 : formCallback.querySelector('input[type="tel"]');
 var presentationTelSelector = formPresentation === null || formPresentation === void 0 ? void 0 : formPresentation.querySelector('input[type="tel"]');
 var businessTelSelector = formBusiness === null || formBusiness === void 0 ? void 0 : formBusiness.querySelector('input[type="tel"]');
 var consultingTelSelector = formConsulting === null || formConsulting === void 0 ? void 0 : formConsulting.querySelector('input[type="tel"]');
 var cityTelSelector = formCity === null || formCity === void 0 ? void 0 : formCity.querySelector('input[type="tel"]');
 var docsTelSelector = formDocs === null || formDocs === void 0 ? void 0 : formDocs.querySelector('input[type="tel"]');
-var inputMask = new (inputmask__WEBPACK_IMPORTED_MODULE_1___default())('+7 (999) 999-99-99');
+var inputMask = new (inputmask__WEBPACK_IMPORTED_MODULE_1___default())("+7 (999) 999-99-99");
 inputMask.mask(callbackTelSelector);
 inputMask.mask(presentationTelSelector);
 inputMask.mask(businessTelSelector);
@@ -293,17 +293,17 @@ inputMask.mask(consultingTelSelector);
 inputMask.mask(cityTelSelector);
 inputMask.mask(docsTelSelector);
 var validationCallback = new just_validate__WEBPACK_IMPORTED_MODULE_0__["default"](formCallback);
-validationCallback.addField('#client-phone', [{
-  rule: 'function',
+validationCallback.addField("#client-phone", [{
+  rule: "function",
   validator: function validator() {
     var phone = callbackTelSelector.inputmask.unmaskedvalue();
     return phone.length === 10;
   },
-  errorMessage: 'Введите правильный номер телефона'
+  errorMessage: "Введите правильный номер телефона"
 }, {
-  rule: 'required',
-  errorMessage: 'Номер телефона обязателен'
-}]).addRequiredGroup('.form__buttons', 'Выберите метод для связи');
+  rule: "required",
+  errorMessage: "Номер телефона обязателен"
+}]).addRequiredGroup(".form__buttons", "Выберите метод для связи");
 validationCallback.onSuccess(function (ev) {
   var formData = new FormData(ev.target);
   var xhr = new XMLHttpRequest();
@@ -311,49 +311,49 @@ validationCallback.onSuccess(function (ev) {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
-        new graph_modal__WEBPACK_IMPORTED_MODULE_2__["default"]().open('thankyou');
+        new graph_modal__WEBPACK_IMPORTED_MODULE_2__["default"]().open("thankyou");
         setTimeout(function () {
-          var modalContainer = document.querySelector('.graph-modal');
-          modalContainer.classList.remove('is-open');
-          document.body.classList.remove('disable-scroll');
+          var modalContainer = document.querySelector(".graph-modal");
+          modalContainer.classList.remove("is-open");
+          document.body.classList.remove("disable-scroll");
           (0,_functions_enable_scroll__WEBPACK_IMPORTED_MODULE_4__.enableScroll)();
         }, 5000);
-        ym(88745464, 'reachGoal', 'form-submit');
+        ym(88745464, "reachGoal", "form-submit");
         return true;
       }
     }
   };
 
-  xhr.open('POST', 'mail.php', true);
+  xhr.open("POST", "mail.php", true);
   xhr.send(formData);
   ev.target.reset();
 });
 var validationPresentation = new just_validate__WEBPACK_IMPORTED_MODULE_0__["default"](formPresentation);
-validationPresentation.addField('#client-name-presentation', [{
-  rule: 'minLength',
+validationPresentation.addField("#client-name-presentation", [{
+  rule: "minLength",
   value: 3,
-  errorMessage: 'Введите корректное имя'
+  errorMessage: "Введите корректное имя"
 }, {
-  rule: 'maxLength',
+  rule: "maxLength",
   value: 30,
-  errorMessage: 'Введите корректное имя'
+  errorMessage: "Введите корректное имя"
 }, {
-  rule: 'required',
-  errorMessage: 'Как вас зовут?'
-}]).addField('#client-phone-presentation', [{
-  rule: 'function',
+  rule: "required",
+  errorMessage: "Как вас зовут?"
+}]).addField("#client-phone-presentation", [{
+  rule: "function",
   validator: function validator() {
     var phone = presentationTelSelector.inputmask.unmaskedvalue();
     return phone.length === 10;
   },
-  errorMessage: 'Введите правильный номер телефона'
+  errorMessage: "Введите правильный номер телефона"
 }, {
-  rule: 'required',
-  errorMessage: 'Номер телефона обязателен'
-}]).addField('#checkbox-rule-presentation', [{
-  rule: 'required',
-  errorMessage: 'Вы должны согласиться с политикой конфиденциальности'
-}]).addRequiredGroup('.form__buttons--presentation', 'Выберите метод для связи');
+  rule: "required",
+  errorMessage: "Номер телефона обязателен"
+}]).addField("#checkbox-rule-presentation", [{
+  rule: "required",
+  errorMessage: "Вы должны согласиться с политикой конфиденциальности"
+}]).addRequiredGroup(".form__buttons--presentation", "Выберите метод для связи");
 validationPresentation.onSuccess(function (ev) {
   var formData = new FormData(ev.target);
   var xhr = new XMLHttpRequest();
@@ -362,46 +362,46 @@ validationPresentation.onSuccess(function (ev) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         _modals_js__WEBPACK_IMPORTED_MODULE_3__["default"].close();
-        new graph_modal__WEBPACK_IMPORTED_MODULE_2__["default"]().open('thankyou');
+        new graph_modal__WEBPACK_IMPORTED_MODULE_2__["default"]().open("thankyou");
         setTimeout(function () {
           _modals_js__WEBPACK_IMPORTED_MODULE_3__["default"].close();
         }, 5000);
-        ym(88745464, 'reachGoal', 'form-submit');
+        ym(88745464, "reachGoal", "form-submit");
         return true;
       }
     }
   };
 
-  xhr.open('POST', 'mail.php', true);
+  xhr.open("POST", "mail.php", true);
   xhr.send(formData);
   ev.target.reset();
 });
 var validationBusiness = new just_validate__WEBPACK_IMPORTED_MODULE_0__["default"](formBusiness);
-validationBusiness.addField('#client-name-business', [{
-  rule: 'minLength',
+validationBusiness.addField("#client-name-business", [{
+  rule: "minLength",
   value: 3,
-  errorMessage: 'Введите корректное имя'
+  errorMessage: "Введите корректное имя"
 }, {
-  rule: 'maxLength',
+  rule: "maxLength",
   value: 30,
-  errorMessage: 'Введите корректное имя'
+  errorMessage: "Введите корректное имя"
 }, {
-  rule: 'required',
-  errorMessage: 'Как вас зовут?'
-}]).addField('#client-phone-business', [{
-  rule: 'function',
+  rule: "required",
+  errorMessage: "Как вас зовут?"
+}]).addField("#client-phone-business", [{
+  rule: "function",
   validator: function validator() {
     var phone = businessTelSelector.inputmask.unmaskedvalue();
     return phone.length === 10;
   },
-  errorMessage: 'Введите правильный номер телефона'
+  errorMessage: "Введите правильный номер телефона"
 }, {
-  rule: 'required',
-  errorMessage: 'Номер телефона обязателен'
-}]).addField('#checkbox-rule-business', [{
-  rule: 'required',
-  errorMessage: 'Вы должны согласиться с политикой конфиденциальности'
-}]).addRequiredGroup('.form__buttons--business', 'Выберите метод для связи');
+  rule: "required",
+  errorMessage: "Номер телефона обязателен"
+}]).addField("#checkbox-rule-business", [{
+  rule: "required",
+  errorMessage: "Вы должны согласиться с политикой конфиденциальности"
+}]).addRequiredGroup(".form__buttons--business", "Выберите метод для связи");
 validationBusiness.onSuccess(function (ev) {
   var formData = new FormData(ev.target);
   var xhr = new XMLHttpRequest();
@@ -410,46 +410,46 @@ validationBusiness.onSuccess(function (ev) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         _modals_js__WEBPACK_IMPORTED_MODULE_3__["default"].close();
-        new graph_modal__WEBPACK_IMPORTED_MODULE_2__["default"]().open('thankyou');
+        new graph_modal__WEBPACK_IMPORTED_MODULE_2__["default"]().open("thankyou");
         setTimeout(function () {
           _modals_js__WEBPACK_IMPORTED_MODULE_3__["default"].close();
         }, 5000);
-        ym(88745464, 'reachGoal', 'form-submit');
+        ym(88745464, "reachGoal", "form-submit");
         return true;
       }
     }
   };
 
-  xhr.open('POST', 'mail.php', true);
+  xhr.open("POST", "mail.php", true);
   xhr.send(formData);
   ev.target.reset();
 });
 var validationConsulting = new just_validate__WEBPACK_IMPORTED_MODULE_0__["default"](formConsulting);
-validationConsulting.addField('#client-name-consulting', [{
-  rule: 'minLength',
+validationConsulting.addField("#client-name-consulting", [{
+  rule: "minLength",
   value: 3,
-  errorMessage: 'Введите корректное имя'
+  errorMessage: "Введите корректное имя"
 }, {
-  rule: 'maxLength',
+  rule: "maxLength",
   value: 30,
-  errorMessage: 'Введите корректное имя'
+  errorMessage: "Введите корректное имя"
 }, {
-  rule: 'required',
-  errorMessage: 'Как вас зовут?'
-}]).addField('#client-phone-consulting', [{
-  rule: 'function',
+  rule: "required",
+  errorMessage: "Как вас зовут?"
+}]).addField("#client-phone-consulting", [{
+  rule: "function",
   validator: function validator() {
     var phone = consultingTelSelector.inputmask.unmaskedvalue();
     return phone.length === 10;
   },
-  errorMessage: 'Введите правильный номер телефона'
+  errorMessage: "Введите правильный номер телефона"
 }, {
-  rule: 'required',
-  errorMessage: 'Номер телефона обязателен'
-}]).addField('#checkbox-rule-consulting', [{
-  rule: 'required',
-  errorMessage: 'Вы должны согласиться с политикой конфиденциальности'
-}]).addRequiredGroup('.form__buttons--consulting', 'Выберите метод для связи');
+  rule: "required",
+  errorMessage: "Номер телефона обязателен"
+}]).addField("#checkbox-rule-consulting", [{
+  rule: "required",
+  errorMessage: "Вы должны согласиться с политикой конфиденциальности"
+}]).addRequiredGroup(".form__buttons--consulting", "Выберите метод для связи");
 validationConsulting.onSuccess(function (ev) {
   var formData = new FormData(ev.target);
   var xhr = new XMLHttpRequest();
@@ -458,46 +458,46 @@ validationConsulting.onSuccess(function (ev) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         _modals_js__WEBPACK_IMPORTED_MODULE_3__["default"].close();
-        new graph_modal__WEBPACK_IMPORTED_MODULE_2__["default"]().open('thankyou');
+        new graph_modal__WEBPACK_IMPORTED_MODULE_2__["default"]().open("thankyou");
         setTimeout(function () {
           _modals_js__WEBPACK_IMPORTED_MODULE_3__["default"].close();
         }, 5000);
-        ym(88745464, 'reachGoal', 'form-submit');
+        ym(88745464, "reachGoal", "form-submit");
         return true;
       }
     }
   };
 
-  xhr.open('POST', 'mail.php', true);
+  xhr.open("POST", "mail.php", true);
   xhr.send(formData);
   ev.target.reset();
 });
 var validationCity = new just_validate__WEBPACK_IMPORTED_MODULE_0__["default"](formCity);
-validationCity.addField('#client-name-city', [{
-  rule: 'minLength',
+validationCity.addField("#client-name-city", [{
+  rule: "minLength",
   value: 3,
-  errorMessage: 'Введите корректное имя'
+  errorMessage: "Введите корректное имя"
 }, {
-  rule: 'maxLength',
+  rule: "maxLength",
   value: 30,
-  errorMessage: 'Введите корректное имя'
+  errorMessage: "Введите корректное имя"
 }, {
-  rule: 'required',
-  errorMessage: 'Как вас зовут?'
-}]).addField('#client-phone-city', [{
-  rule: 'function',
+  rule: "required",
+  errorMessage: "Как вас зовут?"
+}]).addField("#client-phone-city", [{
+  rule: "function",
   validator: function validator() {
     var phone = cityTelSelector.inputmask.unmaskedvalue();
     return phone.length === 10;
   },
-  errorMessage: 'Введите правильный номер телефона'
+  errorMessage: "Введите правильный номер телефона"
 }, {
-  rule: 'required',
-  errorMessage: 'Номер телефона обязателен'
-}]).addField('#checkbox-rule-city', [{
-  rule: 'required',
-  errorMessage: 'Вы должны согласиться с политикой конфиденциальности'
-}]).addRequiredGroup('.form__buttons--city', 'Выберите метод для связи');
+  rule: "required",
+  errorMessage: "Номер телефона обязателен"
+}]).addField("#checkbox-rule-city", [{
+  rule: "required",
+  errorMessage: "Вы должны согласиться с политикой конфиденциальности"
+}]).addRequiredGroup(".form__buttons--city", "Выберите метод для связи");
 validationCity.onSuccess(function (ev) {
   var formData = new FormData(ev.target);
   var xhr = new XMLHttpRequest();
@@ -506,46 +506,46 @@ validationCity.onSuccess(function (ev) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         _modals_js__WEBPACK_IMPORTED_MODULE_3__["default"].close();
-        new graph_modal__WEBPACK_IMPORTED_MODULE_2__["default"]().open('thankyou');
+        new graph_modal__WEBPACK_IMPORTED_MODULE_2__["default"]().open("thankyou");
         setTimeout(function () {
           _modals_js__WEBPACK_IMPORTED_MODULE_3__["default"].close();
         }, 5000);
-        ym(88745464, 'reachGoal', 'form-submit');
+        ym(88745464, "reachGoal", "form-submit");
         return true;
       }
     }
   };
 
-  xhr.open('POST', 'mail.php', true);
+  xhr.open("POST", "mail.php", true);
   xhr.send(formData);
   ev.target.reset();
 });
 var validationDocs = new just_validate__WEBPACK_IMPORTED_MODULE_0__["default"](formDocs);
-validationDocs.addField('#client-name-docs', [{
-  rule: 'minLength',
+validationDocs.addField("#client-name-docs", [{
+  rule: "minLength",
   value: 3,
-  errorMessage: 'Введите корректное имя'
+  errorMessage: "Введите корректное имя"
 }, {
-  rule: 'maxLength',
+  rule: "maxLength",
   value: 30,
-  errorMessage: 'Введите корректное имя'
+  errorMessage: "Введите корректное имя"
 }, {
-  rule: 'required',
-  errorMessage: 'Как вас зовут?'
-}]).addField('#client-phone-docs', [{
-  rule: 'function',
+  rule: "required",
+  errorMessage: "Как вас зовут?"
+}]).addField("#client-phone-docs", [{
+  rule: "function",
   validator: function validator() {
     var phone = docsTelSelector.inputmask.unmaskedvalue();
     return phone.length === 10;
   },
-  errorMessage: 'Введите правильный номер телефона'
+  errorMessage: "Введите правильный номер телефона"
 }, {
-  rule: 'required',
-  errorMessage: 'Номер телефона обязателен'
-}]).addField('#checkbox-rule-docs', [{
-  rule: 'required',
-  errorMessage: 'Вы должны согласиться с политикой конфиденциальности'
-}]).addRequiredGroup('.form__buttons--docs', 'Выберите метод для связи');
+  rule: "required",
+  errorMessage: "Номер телефона обязателен"
+}]).addField("#checkbox-rule-docs", [{
+  rule: "required",
+  errorMessage: "Вы должны согласиться с политикой конфиденциальности"
+}]).addRequiredGroup(".form__buttons--docs", "Выберите метод для связи");
 validationDocs.onSuccess(function (ev) {
   var formData = new FormData(ev.target);
   var xhr = new XMLHttpRequest();
@@ -554,17 +554,18 @@ validationDocs.onSuccess(function (ev) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         _modals_js__WEBPACK_IMPORTED_MODULE_3__["default"].close();
-        new graph_modal__WEBPACK_IMPORTED_MODULE_2__["default"]().open('thankyou');
+        new graph_modal__WEBPACK_IMPORTED_MODULE_2__["default"]().open("thankyou");
         setTimeout(function () {
           _modals_js__WEBPACK_IMPORTED_MODULE_3__["default"].close();
         }, 5000);
-        ym(88745464, 'reachGoal', 'form-submit');
+        ym(88745464, "reachGoal", "form-submit");
+        window.location.replace("http://partezaauto.tilda.ws/commercial_proposal");
         return true;
       }
     }
   };
 
-  xhr.open('POST', 'mail.php', true);
+  xhr.open("POST", "mail.php", true);
   xhr.send(formData);
   ev.target.reset();
 });
