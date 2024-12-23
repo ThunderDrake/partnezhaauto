@@ -2972,8 +2972,8 @@ input[type=radio]:checked + .social-button--wa .social-button__icon {
 }
 .about__video-block {
   position: absolute;
-  right: 5%;
-  bottom: 11%;
+  right: 7%;
+  bottom: 8%;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
