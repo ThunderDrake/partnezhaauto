@@ -817,15 +817,15 @@ input[type=radio]:checked + .social-button--wa .social-button__icon {
 .social-widget:hover .social-widget__list {
   opacity: 1;
   visibility: visible;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-30%);
+  -ms-transform: translateY(-30%);
+  transform: translateY(-30%);
 }
 @media (max-width: 768px) {
   .social-widget:hover .social-widget__list {
-    -webkit-transform: translateY(-65%);
-    -ms-transform: translateY(-65%);
-    transform: translateY(-65%);
+    -webkit-transform: translateY(-45%);
+    -ms-transform: translateY(-45%);
+    transform: translateY(-45%);
   }
 }
 .social-widget:hover .social-widget__link {
